@@ -1,0 +1,1 @@
+<p>This is a simple dashboard layout with a sidebar.</p>

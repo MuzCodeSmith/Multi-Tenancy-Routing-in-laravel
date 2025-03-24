@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student - Sign up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <style>
     * {box-sizing: border-box}
@@ -112,9 +113,14 @@
     <br>
     <br>
     <?php endif; ?>
-    <hr>
+    <label for="psw-repeat"><b>Active</b></label>
+    <br>
+    <input type="radio" name="active" value="1"> Yes
+    <input type="radio" name="active" value="0"> No
 
+    <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    
     <button type="submit" class="registerbtn">Register</button>
   </div>
 

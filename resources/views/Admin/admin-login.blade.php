@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student - Sign up</title>
+    <title>Admin - Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <style>
@@ -47,7 +47,7 @@
 
     /* Set a style for the submit/register button */
     .registerbtn {
-    background-color: #7886C7;
+    background-color: #0D92F4;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
@@ -76,20 +76,19 @@
     }
 </style>
 <body>
-<form action="{{route('student.save')}}" method="POST" class="form-box">
+<form action="{{route('admin.match')}}"  method="POST" class="form-box">
+    <div style="position:absolute; right: 30px; top:30px" >
+      @if(Session::has('error'))
+        <p class="alert alert-danger" role="alert"  >{{ Session::get('error') }}</p>
+      @endif
+    </div>
+    
     @csrf
-  <div class="container"> 
-    <h1>Student Register</h1>
-    <p>Please fill in this form to create an account.</p>
+  <div class="container">
+    <h1>Admin Login</h1>
+    <p>Please fill this form to Login into your account.</p>
     <hr>
-    <label for="name"><b>Username</b></label>
-    <input type="text" placeholder="Enter Name" value="{{ old('name')}}" name="name" id="name">
-    @if ($errors->has('name'))
-    <span class="error">{{ $errors->first('name') }}</span>
-    <br>
-    <br>
-    @endif
-
+    
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" value="{{ old('email')}}" name="email" id="email" >
     @if ($errors->has('email'))
@@ -97,6 +96,7 @@
     <br>
     <br>
     @endif
+
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" value="{{ old('password')}}"  name="password" id="password" >
@@ -106,27 +106,13 @@
     <br>
     @endif
 
-    <label for="psw-repeat"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" value="{{ old('password_confirmation')}}"  name="password_confirmation" id="confirm_password" >
-    @if ($errors->has('password_confirmation'))
-    <span class="error">{{ $errors->first('password_confirmation') }}</span>
-    <br>
-    <br>
-    @endif
-    <label for="psw-repeat"><b>Active</b></label>
-    <br>
-    <input type="radio" name="active" value="1"> Yes
-    <input type="radio" name="active" value="0"> No
-
-    <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn">Login</button>
   </div>
 
   <div class="container signin">
-    <p>Already have an account? <a href="{{route('student.login')}}">Sign in</a>.</p>
+    <p>Dont have an account? <a  href="{{route('admin.register')}}" >Register</a>.</p>
   </div>
+  
 </form>
 </body>
 </html>

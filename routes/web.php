@@ -10,18 +10,19 @@ use App\Http\Controllers\AuthController;
 // Route::post('/login',[AuthController::class,'loginUser'])->name('login.user');
 
 
-$host = request()->getHost(); // Get the current domain
+$host = request()->getHost(); 
 
 
 switch ($host) {
     case config('app.student_domain'):
-        require base_path('routes/student_routes.php'); // Admin Routes
+        require base_path('routes/student_routes.php'); 
         break;
-
     case config('app.teacher_domain'):
-
-        require base_path('routes/teacher_routes.php'); // Frontend Routes
+        require base_path('routes/teacher_routes.php'); 
+        break;
+    case config('app.admin_domain'):
+        require base_path('routes/admin_routes.php'); 
         break;
     default:
-        require base_path('routes/client_routes.php');
+        require base_path('routes/guest_routes.php');
 }

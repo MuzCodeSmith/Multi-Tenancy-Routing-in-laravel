@@ -1,0 +1,1 @@
+<a href="{{route('teacher.edit',$row->id)}}"  class="btn btn-sm btn-primary">Edit</a>

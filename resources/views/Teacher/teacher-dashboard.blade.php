@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <style>
+@extends('layouts.layout')
+@section('title','Teacher Dashboard')
+@section('styles')
+@section('content')
+<style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-
         body {
             display: flex;
             height: 100vh;
         }
-
         .sidebar {
             width: 250px;
             background-color: #333;
@@ -35,6 +31,11 @@
             cursor: pointer;
         }
 
+        .sidebar ul li a{
+            color: white;
+            text-decoration: none;
+        }
+
         .sidebar ul li:hover {
             background-color: #555;
         }
@@ -52,25 +53,11 @@
             text-align: center;
             font-size: 24px;
         }
-    </style>
-</head>
-<body>
-    <div class="sidebar">
-        <h2>Dashboard</h2>
-        <ul>
-            <li>Home</li>
-            <li>Profile</li>
-            <li>Settings</li>
-            <li>
-                <a href="{{route('teacher.logout')}}">Logout</a>
-            </li>
-        </ul>
-    </div>
-    <div class="content">
-        <div class="header">
-            Hello, {{ Auth::check() ? Auth::user()->name : 'Guest' }}! Welcome to Dashboard
-        </div>
-        <p>This is a simple dashboard layout with a sidebar.</p>
-    </div>
-</body>
-</html>
+</style>
+@endsection
+<x-dashboard-sidebar />
+<x-dashboard-wrapper>
+    <x-dashboard-header />
+    <x-dashboard-body />
+</x-dashboard-wrapper>
+@endsection

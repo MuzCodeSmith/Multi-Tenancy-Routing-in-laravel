@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Teacher - Sign up</title>
 </head>
 <style>
     * {box-sizing: border-box}
@@ -82,7 +82,7 @@
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="name"><b>Username</b></label>
-    <input type="text" placeholder="Enter Name" value="<?php echo e(old('name')); ?>" name="name" id="name">
+    <input type="text" placeholder="Enter Name"  name="name" id="name">
     <?php if($errors->has('name')): ?>
     <span class="error"><?php echo e($errors->first('name')); ?></span>
     <br>
@@ -90,7 +90,7 @@
     <?php endif; ?>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" value="<?php echo e(old('email')); ?>" name="email" id="email" >
+    <input type="text" placeholder="Enter Email"name="email" id="email" >
     <?php if($errors->has('email')): ?>
     <span class="error"><?php echo e($errors->first('email')); ?></span>
     <br>
@@ -98,7 +98,7 @@
     <?php endif; ?>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" value="<?php echo e(old('password')); ?>"  name="password" id="password" >
+    <input type="password" placeholder="Enter Password"   name="password" id="password" >
     <?php if($errors->has('password')): ?>
     <span class="error"><?php echo e($errors->first('password')); ?></span>
     <br>
@@ -106,7 +106,7 @@
     <?php endif; ?>
 
     <label for="psw-repeat"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" value="<?php echo e(old('password_confirmation')); ?>"  name="password_confirmation" id="confirm_password" >
+    <input type="password" placeholder="Confirm Password"   name="password_confirmation" id="confirm_password" >
     <?php if($errors->has('password_confirmation')): ?>
     <span class="error"><?php echo e($errors->first('password_confirmation')); ?></span>
     <br>

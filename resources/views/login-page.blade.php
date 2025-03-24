@@ -78,11 +78,7 @@
 <form action="{{route('login.user')}}" method="POST" class="form-box">
     @csrf
   <div class="container">
-  @if($errors)
-        @foreach ($errors->all() as $error)
-            <div>{{ $error }}</div>
-        @endforeach
-    @endif
+ 
     <h1>Login</h1>
     <p>Please fill this form to Login into your account.</p>
     <hr>

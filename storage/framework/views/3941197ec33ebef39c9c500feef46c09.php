@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Teacher - Login</title>
 </head>
 <style>
     * {box-sizing: border-box}
@@ -75,27 +76,20 @@
     }
 </style>
 <body>
-<form action="" method="POST" class="form-box">
+<form action="<?php echo e(route('teacher.login')); ?>" method="POST" class="form-box">
     <?php echo csrf_field(); ?>
   <div class="container">
-  <?php if($errors): ?>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div><?php echo e($error); ?></div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    <?php endif; ?>
     <h1>Teacher Login</h1>
     <p>Please fill this form to Login into your account.</p>
     <hr>
-    
     <label for="email"><b>Email</b></label>
+    how can i transform this input in dynamic input using component
     <input type="text" placeholder="Enter Email" value="<?php echo e(old('email')); ?>" name="email" id="email" >
     <?php if($errors->has('email')): ?>
     <span class="error"><?php echo e($errors->first('email')); ?></span>
     <br>
     <br>
     <?php endif; ?>
-
-
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" value="<?php echo e(old('password')); ?>"  name="password" id="password" >
     <?php if($errors->has('password')): ?>
@@ -103,7 +97,6 @@
     <br>
     <br>
     <?php endif; ?>
-
     <button type="submit" class="registerbtn">Login</button>
   </div>
 

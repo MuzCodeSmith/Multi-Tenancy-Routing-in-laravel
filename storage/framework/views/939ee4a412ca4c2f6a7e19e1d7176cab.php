@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Student - Index</title>
+    <title>Admin - index</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
 
@@ -57,10 +56,11 @@
 </head>
 <body>
     <div class="container">
-        <h2>Welcome, Student</h2>
+        <h2>Welcome, Admin</h2>
         <p>Please login or sign up to continue.</p>
-        <a href="{{route('student.login')}}"  class="btn login-btn">Login</a>
-        <a href="{{route('student.register')}}" class="btn signup-btn">Sign Up</a>
+        <a class="btn login-btn">Login</a>
+        <a class="btn signup-btn">Sign Up</a>
     </div>
 </body>
 </html>
+<?php /**PATH D:\xampp\htdocs\auth-app\resources\views/Admin/admin-index.blade.php ENDPATH**/ ?>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Teacher - Sign up</title>
 </head>
 <style>
     * {box-sizing: border-box}
@@ -82,7 +82,7 @@
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="name"><b>Username</b></label>
-    <input type="text" placeholder="Enter Name" value="{{ old('name')}}" name="name" id="name">
+    <input type="text" placeholder="Enter Name"  name="name" id="name">
     @if ($errors->has('name'))
     <span class="error">{{ $errors->first('name') }}</span>
     <br>
@@ -90,7 +90,7 @@
     @endif
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" value="{{ old('email')}}" name="email" id="email" >
+    <input type="text" placeholder="Enter Email"name="email" id="email" >
     @if ($errors->has('email'))
     <span class="error">{{ $errors->first('email') }}</span>
     <br>
@@ -98,7 +98,7 @@
     @endif
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" value="{{ old('password')}}"  name="password" id="password" >
+    <input type="password" placeholder="Enter Password"   name="password" id="password" >
     @if ($errors->has('password'))
     <span class="error">{{ $errors->first('password') }}</span>
     <br>
@@ -106,7 +106,7 @@
     @endif
 
     <label for="psw-repeat"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" value="{{ old('password_confirmation')}}"  name="password_confirmation" id="confirm_password" >
+    <input type="password" placeholder="Confirm Password"   name="password_confirmation" id="confirm_password" >
     @if ($errors->has('password_confirmation'))
     <span class="error">{{ $errors->first('password_confirmation') }}</span>
     <br>

@@ -1,0 +1,1 @@
+<p>This is a simple dashboard layout with a sidebar.</p><?php /**PATH D:\xampp\htdocs\auth-app\resources\views/components/dashboard-body.blade.php ENDPATH**/ ?>

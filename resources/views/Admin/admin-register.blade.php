@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student - Sign up</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Admin - Sign up</title>
 </head>
 <style>
     * {box-sizing: border-box}
@@ -47,7 +47,7 @@
 
     /* Set a style for the submit/register button */
     .registerbtn {
-    background-color: #7886C7;
+    background-color: #0D92F4;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
@@ -76,10 +76,10 @@
     }
 </style>
 <body>
-<form action="{{route('student.save')}}" method="POST" class="form-box">
+<form action="{{route('admin.save')}}" method="POST" class="form-box">
     @csrf
   <div class="container"> 
-    <h1>Student Register</h1>
+    <h1>Admin Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="name"><b>Username</b></label>
@@ -113,19 +113,13 @@
     <br>
     <br>
     @endif
-    <label for="psw-repeat"><b>Active</b></label>
-    <br>
-    <input type="radio" name="active" value="1"> Yes
-    <input type="radio" name="active" value="0"> No
-
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    
     <button type="submit" class="registerbtn">Register</button>
   </div>
 
   <div class="container signin">
-    <p>Already have an account? <a href="{{route('student.login')}}">Sign in</a>.</p>
+    <p>Already have an account? <a href="{{route('admin.login')}}" >Sign in</a>.</p>
   </div>
 </form>
 </body>

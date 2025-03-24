@@ -1,0 +1,1 @@
+<a href="<?php echo e(route('teacher.edit',$row->id)); ?>"  class="btn btn-sm btn-primary">Edit</a><?php /**PATH D:\xampp\htdocs\auth-app\resources\views/partials/edit-button.blade.php ENDPATH**/ ?>

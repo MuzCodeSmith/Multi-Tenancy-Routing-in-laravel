@@ -2,17 +2,24 @@
 
 namespace App\Models\Teacher;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Teacher extends Model
+class Teacher extends Authenticatable
 {
-    protected $guarded = [];
 
-    protected function casts(): array
-    {
-        return [
-            'password' => 'hashed',
-        ];
-    }
+    use HasFactory, Notifiable;
+
+    protected $fillable = ['name', 'email', 'password'];
+
+    protected $table = 'teachers';
+
+    // protected function casts(): array
+    // {
+    //     return [
+    //         'password' => 'hashed',
+    //     ];
+    // }
 }
 

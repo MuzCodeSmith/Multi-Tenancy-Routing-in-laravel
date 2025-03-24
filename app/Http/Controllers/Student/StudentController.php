@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Models\Student\Student;
+use Illuminate\Support\Facades\Hash;
+
 
 
 class StudentController extends Controller
@@ -28,12 +30,17 @@ class StudentController extends Controller
             "password"=>"required",
         ]);
 
-    
-        if(Auth::attempt($creadntials)){
-            return redirect()->route('student.dashboard');
-        }else{
-            return redirect()->route('student.register');
+        $record = Student::where('email',$reql->email)->first();
+        if($record->active != 0){           
+        
+            if(Auth::guard("student")->attempt($creadntials)) {
+                return redirect()->route('student.dashboard');
+            }else{
+                return redirect()->route('student.login')->with('error', 'Invalid Credentials');
+            }
         }
+        
+        return redirect()->route('student.login')->with('error', 'Account is not active');
     }
 
     public function register(){
@@ -42,17 +49,18 @@ class StudentController extends Controller
     public function saveStudent(Request $req){
         $req->validate([
             'name'=>'required|string|max:255',
-            'email'=>'required|email|unique:students',
+            'email'=>'required|email|unique:teachers',
             'password'=>'required|min:6|confirmed',
         ]);
-
+        
         $user = Student::create([
             "name"=>$req->name,
             "email"=>$req->email,
-            "password"=>$req->password
+            "password"=>Hash::make($req->password),
+            "active"=>$req->active,
         ]);
 
-        return redirect()->route('student.login');
+        return redirect()->route('student.login',);
     }
     
 
@@ -60,8 +68,10 @@ class StudentController extends Controller
         return view('Student.student-dashboard');
     }
 
-    public function logout(){
+    public function logout(Request $req){
         Auth::logout();
+        $req->session()->invalidate();
+        $req->session()->regenerateToken();
         return redirect()->route('student.login');
     }
 }

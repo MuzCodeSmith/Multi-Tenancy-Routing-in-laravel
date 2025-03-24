@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -26,11 +26,13 @@ class TeacherController extends Controller
             "password"=>"required",
         ]);
 
-        if(Auth::attempt($creadntials)){
-
+        if(Auth::guard("teacher")->attempt($creadntials)){
+            // return "valid creadentials";
+            
             return redirect()->route('teacher.dashboard');
         }else{
-            return redirect()->route('teacher.register');
+            // return "invalid creadentials";
+            return redirect()->route('teacher.login')->with('error', 'Invalid Credentials');
         }
     }
 
@@ -48,7 +50,7 @@ class TeacherController extends Controller
         $user = Teacher::create([
             "name"=>$req->name,
             "email"=>$req->email,
-            "password"=>$req->password
+            "password"=>Hash::make($req->password),
         ]);
 
         return redirect()->route('teacher.login',);
@@ -58,8 +60,10 @@ class TeacherController extends Controller
         return view('Teacher.teacher-dashboard');
     }
 
-    public function logout(){
+    public function logout(Request $req){
         Auth::logout();
+        $req->session()->invalidate();
+        $req->session()->regenerateToken();
         return redirect()->route('teacher.login');
     }
 }

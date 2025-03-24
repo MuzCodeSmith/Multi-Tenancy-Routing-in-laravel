@@ -42,42 +42,35 @@ return [
     //     ],
     // ],
     'guards' => [
-    'student' => [
-        'driver' => 'session',
-        'provider' => 'students',
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
+        ],
     ],
-    'teacher' => [
-        'driver' => 'session',
-        'provider' => 'teachers',
-    ],
-],
 
-    /*
-    |--------------------------------------------------------------------------
-    | User Providers
-    |--------------------------------------------------------------------------
-    |
-    | All authentication guards have a user provider, which defines how the
-    | users are actually retrieved out of your database or other storage
-    | system used by the application. Typically, Eloquent is utilized.
-    |
-    | If you have multiple user tables or models you may configure multiple
-    | providers to represent the model / table. These providers may then
-    | be assigned to any extra authentication guards you have defined.
-    |
-    | Supported: "database", "eloquent"
-    |
-    */
+
 
     'providers' => [
     'students' => [
         'driver' => 'eloquent',
-        'model' => App\Models\Student::class,
+        'model' => App\Models\Student\Student::class,
     ],
     'teachers' => [
         'driver' => 'eloquent',
-        'model' => App\Models\Teacher::class,
+        'model' => App\Models\Teacher\Teacher::class,
     ],
+    'admin' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Admin\Admin::class,
+    ],    
 ],
 
     // 'providers' => [

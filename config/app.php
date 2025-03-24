@@ -126,5 +126,6 @@ return [
 
     'teacher_domain' => env('TEACHER_DOMAIN', 'teachers.auth-app.com'),
     'student_domain' => env('STUDENT_DOMAIN', 'students.auth-app.com'),
+    'admin_domain' => env('ADMIN_DOMAIN', 'admin.auth-app.com'),
 
 ];

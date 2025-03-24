@@ -1,17 +1,20 @@
 <?php
 
-namespace App\Models\Student;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Student extends Authenticatable
+use Illuminate\Database\Eloquent\Model;
+
+class Admin extends Authenticatable
 {
     use HasFactory, Notifiable;
-    protected $table = 'students';
 
-    protected $fillable = ['name', 'email', 'password','active'];
+    protected $table = 'admins';
+
+    protected $fillable = ['name', 'email', 'password'];
 
     // protected function casts(): array
     // {
@@ -20,5 +23,3 @@ class Student extends Authenticatable
     //     ];
     // }
 }
-
-
